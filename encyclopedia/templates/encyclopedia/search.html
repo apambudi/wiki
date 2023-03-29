@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block body %}
+    <h1>Search results</h1>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href="{% url 'show_entry' entry%}">{{entry}}</a>
+            </li>
+        {% empty %}
+            <li>
+                No list of encyclopedia entries has the query as a substring. 
+                Check the list <a href="{% url 'index' %}">here</a>.
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+<!--"wiki/{{entry}}"-->
